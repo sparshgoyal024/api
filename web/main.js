@@ -1,19 +1,3 @@
-/**
- * Copyright 2018, Google, LLC.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-
 var gapi = gapi || {};
 
 /* eslint-disable no-unused-vars */
@@ -42,7 +26,8 @@ function signIn () {
   gapi.auth2.getAuthInstance().signIn().then(() => {
     document.getElementById('sign-in-btn').hidden = true;
     document.getElementById('sign-out-btn').hidden = false;
-    document.getElementById('send-request-btn').disabled = false;
+    document.getElementById('send-endpoint-btn').disabled = false;
+    document.getElementById('send-api-btn').disabled = false;
   }).catch(err => {
     console.log(err);
   });
@@ -50,17 +35,37 @@ function signIn () {
 // [END user_signin]
 
 // [START send_sample_request]
-function sendSampleRequest (projectId = 'ca-lab') {
+function endpointApiRequest(projectId = 'ca-lab') {
   var user = gapi.auth2.getAuthInstance().currentUser.get();
 
   console.log(user);
   var idToken = user.getAuthResponse().id_token;
     console.log(idToken);
-  var endpoint = `https://ca-lab.uc.r.appspot.com/_ah/api/email/v1/get/email`;
+  var endpoint = `https://ca-lab.appspot.com/hello`;
 
   var xhr = new XMLHttpRequest();
     console.log(xhr);
-  xhr.open('GET', endpoint + '?access_token=' + encodeURIComponent(idToken));
+  xhr.open('GET', endpoint + '?who=ss&&access_token=' + encodeURIComponent(idToken));
+
+  xhr.onreadystatechange = function () {
+    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+      window.alert(xhr.responseText);
+    }
+  };
+  xhr.send();
+}
+
+function apiGatewayRequest(projectId = 'ca-lab') {
+  var user = gapi.auth2.getAuthInstance().currentUser.get();
+
+  console.log(user);
+  var idToken = user.getAuthResponse().id_token;
+    console.log(idToken);
+  var endpoint = `https://testgateway-6drf0zzu.uc.gateway.dev/hello`;
+
+  var xhr = new XMLHttpRequest();
+    console.log(xhr);
+  xhr.open('GET', endpoint + '?who=ss&&access_token=' + encodeURIComponent(idToken));
 
   xhr.onreadystatechange = function () {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
