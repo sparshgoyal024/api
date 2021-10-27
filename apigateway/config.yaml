@@ -9,10 +9,10 @@ schemes:
 produces:
   - application/json
 paths:
-  /hello:
+  /getUser:
     get:
       summary: Greet a user
-      operationId: hello
+      operationId: getUser
       x-google-backend:
         address: "https://ca-lab.uc.r.appspot.com/"
         jwt_audience: "5001*****-dirb7r5k9o49hq33ri1midsmd7hk7d4l.apps.googleusercontent.com"
