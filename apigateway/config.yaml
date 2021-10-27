@@ -14,33 +14,20 @@ paths:
       summary: Greet a user
       operationId: hello
       x-google-backend:
-        address: "https://ca-lab.uc.r.appspot.com/?who=sdvs"
-        jwt_audience: "500140982586-dirb7r5k9o49hq33ri1midsmd7hk7d4l.apps.googleusercontent.com"
+        address: "https://ca-lab.uc.r.appspot.com/"
+        jwt_audience: "5001*****-dirb7r5k9o49hq33ri1midsmd7hk7d4l.apps.googleusercontent.com"
       responses:
         '200':
           description: A successful response
           schema:
             type: string
       security:
-      - api_key: []
       - google_id_token: []
-      - google_id_token-7f866a72: []
-
+ 
 securityDefinitions:
-  api_key:
-    in: query
-    name: key
-    type: apiKey
   google_id_token:
     authorizationUrl: ''
     flow: implicit
     type: oauth2
-    x-google-issuer: "accounts.google.com"
-    x-google-jwks_uri: "https://www.googleapis.com/oauth2/v3/certs"
-  google_id_token-7f866a72:
-    authorizationUrl: ''
-    flow: implicit
-    type: oauth2
-    x-google-audiences: "500140982586-hlo5gg22uaduqqd7f07csns5hg0brh85.apps.googleusercontent.com"
     x-google-issuer: "accounts.google.com"
     x-google-jwks_uri: "https://www.googleapis.com/oauth2/v3/certs"
