@@ -23,8 +23,8 @@ class EmailApi(remote.Service):
         path='get/email',
         http_method='GET',
         scopes=[endpoints.EMAIL_SCOPE],
-        audiences=['5001*****-hlo5gg22uaduqqd7f07csns5hg0brh85.apps.googleusercontent.com'],
-        allowed_client_ids=['5001*****-hlo5gg22uaduqqd7f07csns5hg0brh85.apps.googleusercontent.com'])
+        audiences=['500140982586-hlo5gg22uaduqqd7f07csns5hg0brh85.apps.googleusercontent.com'],
+        allowed_client_ids=['500140982586-hlo5gg22uaduqqd7f07csns5hg0brh85.apps.googleusercontent.com'])
     
     def get_user_email(self, request):
         user = endpoints.get_current_user()
