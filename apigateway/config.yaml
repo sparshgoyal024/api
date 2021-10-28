@@ -15,7 +15,7 @@ paths:
       operationId: getUser
       x-google-backend:
         address: "https://ca-lab.uc.r.appspot.com/"
-        jwt_audience: "500140982586-hlo5gg22uaduqqd7f07csns5hg0brh85.apps.googleusercontent.com"
+        jwt_audience: "<>"
       responses:
         '200':
           description: A successful response
