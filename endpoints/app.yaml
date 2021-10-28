@@ -31,6 +31,6 @@ libraries:
 env_variables:
   # The following values are to be replaced by information from the output of
   # 'gcloud endpoints services deploy swagger.json' command.
-  ENDPOINTS_SERVICE_NAME: ca-lab.appspot.com
+  ENDPOINTS_SERVICE_NAME: projectId.appspot.com
   ENDPOINTS_SERVICE_VERSION: 2021-10-23r3
  # [END env_vars]
