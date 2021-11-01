@@ -35,13 +35,13 @@ function signIn () {
 // [END user_signin]
 
 // [START send_sample_request]
-function endpointApiRequest(projectId = 'replace-projectId') {
+function endpointApiRequest(projectId = 'Replace Project Id') {
+  
   var user = gapi.auth2.getAuthInstance().currentUser.get();
-
-  console.log(user);
   var idToken = user.getAuthResponse().id_token;
-    console.log(idToken);
-  var endpoint = `Add Cloud Endpoint URL with Path`;
+  
+  // Replace Cloud Endpoint URL with Path below
+  var endpoint = `https://<projectId>.appspot.com/_ah/api/email/v1/get/email`;
 
   var xhr = new XMLHttpRequest();
     console.log(xhr);
@@ -56,18 +56,16 @@ function endpointApiRequest(projectId = 'replace-projectId') {
   xhr.send();
 }
 
-function apiGatewayRequest(projectId = 'replace-projectId') {
+
+function apiGatewayRequest(projectId = 'Replace Project Id') {
   var user = gapi.auth2.getAuthInstance().currentUser.get();
 
-  //console.log(user);
   var idToken = user.getAuthResponse().id_token;
-  //  console.log(idToken);
   
   //Replace API Gateway host url below, keep https:// and getUser as is.
   var endpoint = `https://ca-gateway-6drf0zzu.uc.gateway.dev/getUser`;  
 
   var xhr = new XMLHttpRequest();
-  //  console.log(xhr);
   xhr.open('GET', endpoint + '?access_token=' + encodeURIComponent(idToken));
   xhr.withCredentials = true;
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencode');
@@ -92,5 +90,3 @@ function signOut () {
   });
 }
 // [END user_signout]
-
-/* eslint-enable no-unused-vars */
