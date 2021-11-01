@@ -9,17 +9,13 @@ class EmailRequest(messages.Message):
     message = messages.StringField(1)
 class EmailResponse(messages.Message):
     message = messages.StringField(1)
-@endpoints.api(name='email', version='v1')
+    
+#Add Endpoint API below
+
 class EmailApi(remote.Service):
     
-    @endpoints.method(
-        message_types.VoidMessage,
-        EmailResponse,
-        path='get/email',
-        http_method='GET',
-        scopes=[endpoints.EMAIL_SCOPE],
-        audiences=['500140982586-cvlvqe74fb5lg04peq2de65a16mkcp3s.apps.googleusercontent.com'],
-        allowed_client_ids=['500140982586-cvlvqe74fb5lg04peq2de65a16mkcp3s.apps.googleusercontent.com'])
+    #Add Endpoint Method Path below
+    
     
     def get_user_email(self, request):
         user = endpoints.get_current_user()
